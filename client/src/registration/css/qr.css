@@ -1,0 +1,40 @@
+#camera-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height : 100%;
+}
+
+#camera-region {
+	padding : 12px;
+}
+
+#camera-region video {
+	display : block;
+	margin : auto;
+	width : 720px;
+	height : 540px;
+	transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+}
+
+#qr-canvas {
+	height : 540px;
+	width : 720px;
+}
+
+#qr-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height : 100%;
+}
+
+#qr-container canvas {
+	display : block;
+}
+
+#qr-container a {
+	display : block;
+}
