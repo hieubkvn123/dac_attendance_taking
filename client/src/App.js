@@ -26,7 +26,7 @@ function App() {
     			<Switch>
                     <Route path='/qrcode/:data' component={QRCodeDiv}></Route>
     				<Route path='/registration'><RegistrationForm/></Route>
-    				<Route path='/thankyou'><ThankyouPage/></Route>
+    				<Route path='/thankyou/:data' component={ThankyouPage}></Route>
     				<Route path='/attendance'><QRCodeScanner/></Route>
                     <Route path='/admin'><AdminDashboard/></Route>
     				<Route exact path='/' render = {() =>{

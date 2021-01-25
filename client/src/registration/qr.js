@@ -125,9 +125,10 @@ class QRCodeScanner extends Component {
 					alert('You are not registered in this event')
 				}else if(response === 'attended'){
 					alert('You have attended this event')
-				}else if(response === 'success'){
+				}else if(response.includes('success')){
 					// Do somthing here
-					window.location.replace('/thankyou')
+					var splits = response.split('-')
+					window.location.replace(`/thankyou/${splits[1]}-${splits[2]}-${splits[3]}`)
 				}
 			})
 			.catch(err => console.log(err))

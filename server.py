@@ -143,13 +143,43 @@ def qrcode():
 	if(cursor.rowcount >= 1):
 		return 'attended'
 
+	### Find info about participant ###
+	sql = "SELECT * FROM registration WHERE sim_id='%s' AND event_id='%s' AND attended=0" % (sim_id, event_id)
+	cursor.execute(sql)
+	results = cursor.fetchall()
+	info = results[0]
+	response = 'success-' + str(info[0]) + '-' + str(info[1]) + '-' + str(info[4])
+
 	### If none of above circumstances, update ###
 	sql = "UPDATE registration SET attended=1 WHERE sim_id='%s' AND event_id='%s'" % (sim_id, event_id)
 	cursor.execute(sql)
 	connection.commit()
 	connection.close()
 
-	return 'success'
+	return response
+
+@app.route('/list-participants', methods=['POST'])
+def list_participants():
+	if request.method == 'POST':
+		event_id = request.form['event_id']
+		event_name = request.form['event_name']
+
+		sql = 'SELECT * FROM registration WHERE event_id="%s"' % event_id
+		connection = _get_mysql_connection()
+		cursor = connection.cursor()
+
+		cursor.execute(sql)
+		results = cursor.fetchall()
+
+		participants = []
+		for row in results:
+			participants.append(row)
+
+		participants = json.dumps(participants)
+
+		connection.close()
+
+		return participants
 
 if __name__ == '__main__':
 	if(DEBUG):

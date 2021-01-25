@@ -7,3 +7,32 @@
 	height : 100%;
 	display : inline-block;
 }
+
+#participants-table {
+	width: 100%;
+	border : 1px solid gray;
+}
+
+#participants-table td, #participants-table th {
+	padding : 12px;
+	width : calc(100%/6);
+}
+
+.status-div {
+	border-radius : 15px;
+	border : 1px gray solid;
+	padding : 5px;
+	padding-left : 25px;
+	padding-right : 25px;
+	width : 80%;
+}
+
+.status-div[value="Attended"] {
+	background: green;
+	color : white;
+}
+
+.status-div[value="Not attended"] {
+	background: red;
+	color : black;
+}
