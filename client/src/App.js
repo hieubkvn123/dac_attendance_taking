@@ -6,6 +6,7 @@ import { Component } from 'react'
 import RegistrationForm from './registration/register'
 import ThankyouPage from './registration/thankyoupage'
 import QRCodeScanner, { QRCodeDiv } from './registration/qr'
+import AdminDashboard from './registration/admin'
 
 /* Import navigation */
 import {
@@ -27,6 +28,7 @@ function App() {
     				<Route path='/registration'><RegistrationForm/></Route>
     				<Route path='/thankyou'><ThankyouPage/></Route>
     				<Route path='/attendance'><QRCodeScanner/></Route>
+                    <Route path='/admin'><AdminDashboard/></Route>
     				<Route exact path='/' render = {() =>{
     					return (<Redirect to="/registration"/>)
     				}}/>
